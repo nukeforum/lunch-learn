@@ -1,6 +1,7 @@
 package com.rook.lunchandlearn.main;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -15,10 +16,10 @@ import java.util.ArrayList;
  * Created by Rook on 5/21/2017.
  */
 
-public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
+class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
     private ArrayList<Topic> topics;
 
-    public TopicAdapter(ArrayList<Topic> topics) {
+    TopicAdapter(ArrayList<Topic> topics) {
         this.topics = topics;
     }
 
@@ -28,7 +29,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(View.inflate(parent.getContext(), R.layout.list_item_topic, parent));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_topic, parent, false));
     }
 
     @Override
@@ -53,6 +54,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    topic.setCompleted(!topic.isCompleted());
                     toggleTopicCompleted(topic);
                 }
             });

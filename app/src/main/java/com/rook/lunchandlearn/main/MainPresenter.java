@@ -9,8 +9,8 @@ import java.util.ArrayList;
  * Created by Rook on 5/21/2017.
  */
 
-public class MainPresenter extends Presenter<IMain> {
-    ArrayList<Topic> topics = new ArrayList<>();
+class MainPresenter extends Presenter<IMain> {
+    private ArrayList<Topic> topics = new ArrayList<>();
 
     @Override
     protected void onBind() {
