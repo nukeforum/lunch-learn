@@ -4,6 +4,7 @@ import com.nhaarman.mockito_kotlin.verify
 import com.rook.lunchandlearn.entities.Topic
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.context
+import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.it
 import org.junit.platform.runner.JUnitPlatform
@@ -14,11 +15,11 @@ import kotlin.test.assertTrue
 
 @RunWith(JUnitPlatform::class)
 object MainPresenterTest : Spek({
-    given("a MainPresenter") {
+    describe("a MainPresenter") {
         val view = mock(IMain::class.java)
         val presenter = MainPresenter()
 
-        context("on bind") {
+        context("binding a view") {
             afterEachTest { presenter.dropView(view) }
 
             it("should tell the view to show topics") {
@@ -27,7 +28,7 @@ object MainPresenterTest : Spek({
             }
         }
 
-        context("adding Topic") {
+        context("adding a Topic") {
             afterEachTest {
                 presenter.dropView(view)
                 presenter.topics.clear()
