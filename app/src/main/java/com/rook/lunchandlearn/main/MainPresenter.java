@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 
 class MainPresenter extends Presenter<IMain> {
-    private ArrayList<Topic> topics = new ArrayList<>();
+    public ArrayList<Topic> topics = new ArrayList<>();
 
     @Override
     protected void onBind() {
