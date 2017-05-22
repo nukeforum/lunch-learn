@@ -42,6 +42,7 @@ dependencies {
         exclude group: 'org.junit.platform'
         exclude group: 'org.jetbrains.kotlin'
     }
+    compile 'com.android.support:design:25.3.1'
 }
 repositories {
     mavenCentral()
